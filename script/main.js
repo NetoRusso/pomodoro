@@ -107,3 +107,4 @@ document.getElementById('alarme').addEventListener('click', () => {
 
 });
 
+let Amor = "milena";
