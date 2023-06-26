@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.31 137.11">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: RobotoSlab-Bold, 'Roboto Slab';
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #a5043f;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1-2" data-name="Camada 1">
+    <circle class="cls-3" cx="77.11" cy="77.11" r="55"/>
+    <text class="cls-1" transform="translate(17.54 86.85) rotate(-93.08)"><tspan x="0" y="0">P</tspan></text>
+    <text class="cls-1" transform="translate(16.68 76.78) rotate(-82.94)"><tspan x="0" y="0">A</tspan></text>
+    <text class="cls-1" transform="translate(18.31 63.22) rotate(-70.18)"><tspan x="0" y="0">R</tspan></text>
+    <text class="cls-1" transform="translate(22.64 50.9) rotate(-57.42)"><tspan x="0" y="0">A</tspan></text>
+    <text class="cls-1" transform="translate(29.96 39.36) rotate(-44.79)"><tspan x="0" y="0">R</tspan></text>
+    <text class="cls-1" transform="translate(39.58 30.22) rotate(-36.38)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(42.93 27.28) rotate(-27.77)"><tspan x="0" y="0">O</tspan></text>
+    <text class="cls-1" transform="translate(55.11 21.21) rotate(-19.14)"><tspan x="0" y="0"> </tspan></text>
+    <text class="cls-1" transform="translate(59.17 19.38) rotate(-10.37)"><tspan x="0" y="0">A</tspan></text>
+    <text class="cls-1" transform="translate(72.65 16.99) rotate(1.32)"><tspan x="0" y="0">L</tspan></text>
+    <text class="cls-1" transform="translate(83.75 17.04) rotate(13.09)"><tspan x="0" y="0">A</tspan></text>
+    <text class="cls-1" transform="translate(97.08 20.09) rotate(25.88)"><tspan x="0" y="0">R</tspan></text>
+    <text class="cls-1" transform="translate(108.96 25.39) rotate(40.58)"><tspan x="0" y="0">M</tspan></text>
+    <text class="cls-1" transform="translate(122.49 37.34) rotate(54.8)"><tspan x="0" y="0">E</tspan></text>
+    <g>
+      <path class="cls-2" d="m59.23,106.35c-4.14,0-7.5-3.36-7.5-7.5v-43.5c0-4.14,3.36-7.5,7.5-7.5s7.5,3.36,7.5,7.5v43.5c0,4.14-3.36,7.5-7.5,7.5Z"/>
+      <path class="cls-2" d="m94.99,106.35c-4.14,0-7.5-3.36-7.5-7.5v-43.5c0-4.14,3.36-7.5,7.5-7.5s7.5,3.36,7.5,7.5v43.5c0,4.14-3.36,7.5-7.5,7.5Z"/>
+    </g>
+  </g>
+</svg>

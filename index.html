@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Foco</title>
+    <link rel="Icon"  type="image/png" href="img/favcon_foco_128.png">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+
+    <header>
+        <img class="logo mn" src="./img/MN logo.svg" alt="Logo da MN tecnologia e Comunicação">
+        <a href="https://www.instagram.com/donuts.criativo/" target="blank"><img class="logo donuts" src="./img/Icon donuts.svg"></a>
+    </header>
+    <div class="container">
+        <h1 id="titulo__principal" class="titulo__principal">Vamos Focar ?</h1>
+        <div id="timer" class="timer">
+            <div class="minutes"><span id="minutes">00</span><span class="titulo__timer">Minutos</span></div>
+            <p class="dois__pontos"> : </p>
+            <div class="seconds"><span id="seconds">00</span><span class="titulo__timer">Segundos</span></div>
+        </div>
+
+        <div class="botoes">
+            <button id="start" class="botao start">Iniciar</button>
+            <button id="pause" class="botao pause">Pausar</button>
+            <button id="resume" class="botao resume">Retornar</button>
+            <button id="reset" class="botao reset">Resetar</button>
+        </div>
+        <div id="alarme" class="alarme">
+        <img class="botao__alarme" src="./img/PararAlarme.svg" alt="botão do alarme">
+        <audio id="alarme__foco" src="./audios/Reflections On A Red Bike.mp3"></audio>
+        <audio id="alarme__descanso" src="./audios/Hard Earned Luck.mp3"></audio>
+        </div>
+    </div>
+
+
+    
+    
+    <script src="/script/main.js"></script>
+</body>
+</html>
