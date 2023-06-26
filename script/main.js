@@ -1,6 +1,6 @@
-const foco = 10;
-const descanso = 5;
-const descansoLongo = 7;
+const foco = 30;
+const descanso = 10;
+const descansoLongo = 20;
 
 let min; 
 let seg;
