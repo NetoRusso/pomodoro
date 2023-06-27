@@ -1,6 +1,6 @@
-const foco = 30;
-const descanso = 10;
-const descansoLongo = 20;
+const foco = 3;
+const descanso = 2;
+const descansoLongo = 5;
 
 let min; 
 let seg;
@@ -28,9 +28,15 @@ function diminuirOTempo () {
       document.getElementById('start').disabled = false;
       tocarAlarmeDescanso();
       document.getElementById("titulo__principal").innerHTML= "Vamos Descansar ?";
-    } else {
+    }else if(i === 7) {
+      clearInterval(interval);
       document.getElementById('start').disabled = true;
-    }
+      tocarAlarmeDescanso();
+      document.getElementById("titulo__principal").innerHTML= "Descanso Longo!";
+      console.log(i, ' Descanso Longo')
+    // }else if( i > 7) {
+    //   document.getElementById('start').disabled = true;
+    };
 
   };
 
@@ -93,7 +99,7 @@ document.getElementById('start').addEventListener('click', () => {
     start(descanso);
     console.log(i , " Descanso");
     i++;
-  } else {
+  } else if(i === 7) {
     start(descansoLongo);
     console.log(i , " descanso Longo");
     document.getElementById('start').disabled = true;
@@ -106,5 +112,3 @@ document.getElementById('alarme').addEventListener('click', () => {
   console.log('o alarme parou!')
 
 });
-
-let Amor = "milena";
