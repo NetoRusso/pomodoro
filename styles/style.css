@@ -111,6 +111,20 @@ body{
     box-shadow: none;
 }
 
+.pause:disabled {
+    background-color: #191825;
+    scale: 1;
+    cursor: auto;
+    box-shadow: none;
+}
+
+.resume:disabled {
+    background-color: #191825;
+    scale: 1;
+    cursor: auto;
+    box-shadow: none;
+}
+
 .pause {background-color: rgb(4, 93, 165);}
 .resume {background-color: rgb(165, 79, 4);}
 .reset {background-color: rgb(165, 4, 63);}

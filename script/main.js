@@ -1,72 +1,87 @@
-const foco = 3;
-const descanso = 2;
-const descansoLongo = 5;
+// Variáveis
 
-let min; 
+const foco = 30;
+const descanso = 10;
+const descansoLongo = 20;
+const totalCiclos = 7;
+
+const botaoStart = document.getElementById('start');
+const botaoPause = document.getElementById('pause');
+const botaoRetornar = document.getElementById('resume');
+const botaoResetar = document.getElementById('reset');
+const botaoAlarme = document.getElementById('alarme');
+
+let min;
 let seg;
 let tempo;
 let interval;
 let i = 0;
+let cicloAtual = 0;
+let isPaused = false;
+let tempoInicial;
+let alarmeTocado = false;
 
-function diminuirOTempo () {
-  
-  if(tempo > 0){
-    document.getElementById('start').disabled = true;
-    tempo = tempo -1;
+//parâmetros iniciais
+
+botaoPause.disabled = true;
+botaoRetornar.disabled = true;
+
+
+// Funções
+
+
+function diminuirOTempo() {
+  if (tempo > 0 && !isPaused) {
+    botaoStart.disabled = true;
+    botaoPause.disabled = false;
+    tempo = tempo - 1;
     imprimeTempo(tempo);
-  }else {
-
-    if(i % 2 === 0 && i < 7) {
+  } else {
+    if (i % 2 === 0 && i < totalCiclos) {
       clearInterval(interval);
-      document.getElementById('start').disabled = false;
+      botaoStart.disabled = false;
+      botaoPause.disabled = true;
       tocarAlarmeFoco();
-      document.getElementById("titulo__principal").innerHTML= "Vamos Focar ?";
-
-
-    } else if(i % 2 === 1 && i < 7) {
+      document.getElementById("titulo__principal").innerHTML = "Vamos Focar ?";
+    } else if (i % 2 === 1 && i < totalCiclos) {
       clearInterval(interval);
-      document.getElementById('start').disabled = false;
+      botaoStart.disabled = false;
+      botaoPause.disabled = true;
       tocarAlarmeDescanso();
-      document.getElementById("titulo__principal").innerHTML= "Vamos Descansar ?";
-    }else if(i === 7) {
+      document.getElementById("titulo__principal").innerHTML = "Vamos Descansar ?";
+    } else if (i === totalCiclos) {
       clearInterval(interval);
-      document.getElementById('start').disabled = true;
+      botaoStart.disabled = true;
+      botaoPause.disabled = false;
       tocarAlarmeDescanso();
-      document.getElementById("titulo__principal").innerHTML= "Descanso Longo!";
-      console.log(i, ' Descanso Longo')
-    // }else if( i > 7) {
-    //   document.getElementById('start').disabled = true;
-    };
+      document.getElementById("titulo__principal").innerHTML = "Descanso Longo!";
+    }
+  }
+}
 
-  };
-
-};
-
-function start (tempoRecebido) {
+function start(tempoRecebido) {
   tempo = tempoRecebido;
+  tempoInicial = tempoRecebido;
   interval = setInterval(() => diminuirOTempo(), 1000);
-  
-};
+}
 
 function imprimeTempo(tempo) {
-
-  if((tempo -1) >= -1) {
-
+  if (tempo - 1 >= -1) {
     min = parseInt(tempo / 60);
     seg = parseInt(tempo % 60);
-    
+
     if (min < 10) {
       min = "0" + min;
       min = min.substr(0, 2);
     }
 
     if (seg <= 9) {
-        seg = "0" + seg;
+      seg = "0" + seg;
     }
     document.getElementById("minutes").innerText = min;
     document.getElementById("seconds").innerText = seg;
-  };
-};
+  }
+}
 
 function tocarAlarmeFoco() {
   let audio = document.getElementById('alarme__foco');
@@ -89,26 +104,82 @@ function pararAlarme() {
   }
 }
 
-document.getElementById('start').addEventListener('click', () => {
+function pausarRelogio() {
+  isPaused = true;
+  clearInterval(interval);
+  botaoPause.disabled = true;
+  botaoRetornar.disabled = false;
+}
 
-  if(i % 2 === 0 && i < 7) {
-    console.log(i , " foco");
-    start(foco);
-    i++;
-  } else if(i % 2 === 1 && i < 7) {
-    start(descanso);
-    console.log(i , " Descanso");
-    i++;
-  } else if(i === 7) {
-    start(descansoLongo);
-    console.log(i , " descanso Longo");
-    document.getElementById('start').disabled = true;
+function retornarRelogio() {
+  isPaused = false;
+  interval = setInterval(() => diminuirOTempo(), 1000);
+  botaoRetornar.disabled = true;
+}
+
+function resetarRelogio() {
+  clearInterval(interval);
+  botaoStart.disabled = false;
+  botaoPause.disabled = true;
+  i = cicloAtual;
+
+  if (i % 2 === 0 && i < totalCiclos) {
+    if (!alarmeTocado) {
+      tocarAlarmeFoco();
+      alarmeTocado = true;
+    }
+    document.getElementById("titulo__principal").innerHTML = "Vamos Focar ?";
+  } else if (i % 2 === 1 && i < totalCiclos) {
+    if (!alarmeTocado) {
+      tocarAlarmeDescanso();
+      alarmeTocado = true;
+    }
+    document.getElementById("titulo__principal").innerHTML = "Vamos Descansar ?";
+  } else if (i === totalCiclos) {
+    if (!alarmeTocado) {
+      tocarAlarmeDescanso();
+      alarmeTocado = true;
+    }
+    document.getElementById("titulo__principal").innerHTML = "Descanso Longo!";
   }
 
+  tempo = tempoInicial;
+  imprimeTempo(tempo);
+}
+
+// Botões
+
+botaoStart.addEventListener('click', () => {
+  if (i % 2 === 0 && i < totalCiclos) {
+    console.log(i, " foco");
+    start(foco);
+    botaoPause.disabled = false;
+    i++;
+  } else if (i % 2 === 1 && i < totalCiclos) {
+    start(descanso);
+    botaoPause.disabled = false;
+    console.log(i, " Descanso");
+    i++;
+  } else if (i === totalCiclos) {
+    start(descansoLongo);
+    console.log(i, " descanso Longo");
+    botaoStart.disabled = true;
+  }
 });
 
-document.getElementById('alarme').addEventListener('click', () => {
+botaoAlarme.addEventListener('click', () => {
   pararAlarme();
-  console.log('o alarme parou!')
+  console.log('O alarme parou!');
+});
 
+botaoPause.addEventListener('click', () => {
+  pausarRelogio();
+});
+
+botaoRetornar.addEventListener('click', () => {
+  retornarRelogio();
+});
+
+botaoResetar.addEventListener('click', () => {
+  resetarRelogio();
 });
