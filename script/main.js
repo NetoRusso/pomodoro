@@ -117,39 +117,10 @@ function retornarRelogio() {
   botaoRetornar.disabled = true;
 }
 
-function resetarRelogio() {
-  clearInterval(interval);
-  botaoStart.disabled = false;
-  botaoPause.disabled = true;
-  i = cicloAtual;
-
-  if (i % 2 === 0 && i < totalCiclos) {
-    if (!alarmeTocado) {
-      tocarAlarmeFoco();
-      alarmeTocado = true;
-    }
-    document.getElementById("titulo__principal").innerHTML = "Vamos Focar ?";
-  } else if (i % 2 === 1 && i < totalCiclos) {
-    if (!alarmeTocado) {
-      tocarAlarmeDescanso();
-      alarmeTocado = true;
-    }
-    document.getElementById("titulo__principal").innerHTML = "Vamos Descansar ?";
-  } else if (i === totalCiclos) {
-    if (!alarmeTocado) {
-      tocarAlarmeDescanso();
-      alarmeTocado = true;
-    }
-    document.getElementById("titulo__principal").innerHTML = "Descanso Longo!";
-  }
-
-  tempo = tempoInicial;
-  imprimeTempo(tempo);
-}
-
 // Botões
 
 botaoStart.addEventListener('click', () => {
+  botaoStart.disabled = true;
   if (i % 2 === 0 && i < totalCiclos) {
     console.log(i, " foco");
     start(foco);
@@ -162,8 +133,8 @@ botaoStart.addEventListener('click', () => {
     i++;
   } else if (i === totalCiclos) {
     start(descansoLongo);
-    console.log(i, " descanso Longo");
     botaoStart.disabled = true;
+    console.log(i, " descanso Longo");
   }
 });
 
@@ -180,6 +151,6 @@ botaoRetornar.addEventListener('click', () => {
   retornarRelogio();
 });
 
-botaoResetar.addEventListener('click', () => {
-  resetarRelogio();
-});
+// botaoResetar.addEventListener('click', () => {
+//   resetarRelogio();
+// });
