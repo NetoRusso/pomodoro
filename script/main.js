@@ -1,8 +1,8 @@
 // Variáveis
 
-const foco = 30;
-const descanso = 10;
-const descansoLongo = 20;
+let foco = 30;
+let descanso = 10;
+let descansoLongo = 20;
 const totalCiclos = 7;
 
 const botaoStart = document.getElementById('start');
