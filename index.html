@@ -9,12 +9,13 @@
   <link rel="Icon" type="image/png" href="img/favcon_foco_128.png">
   <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/style.css">
-  <link rel="stylesheet" href="/styles/modal.css">
+  <link rel="stylesheet" href="/styles/modal1.css">
+  <script src="script/modal1.js" defer></script>
 </head>
 
 <body>
   <header>
-    <img class="logo mn" src="./img/MN logo.svg" alt="Logo da MN tecnologia e Comunicação">
+    <a href="https://www.instagram.com/mn.techmkt/" target="_blank"><img class="logo mn" src="./img/MN logo.svg" alt="Logo da MN tecnologia e Comunicação"></a>
     <a href="https://www.instagram.com/donuts.criativo/" target="blank"><img class="logo donuts"
         src="./img/Icon donuts.svg"></a>
   </header>
@@ -38,6 +39,7 @@
       <button id="pause" class="botao pause">Pausar</button>
       <button id="resume" class="botao resume">Retornar</button>
       <button id="reset" class="botao reset">Resetar</button>
+      <script src="script/modal1.js" defer></script>
     </div>
 
     <div id="alarme" class="alarme">
@@ -47,12 +49,14 @@
     </div>
   </div>
 
-<!-- Modal -->
+<!-- Modal
 <div id="modal" class="modal">
     <div class="modal-content">
       <h2>Vamos Focar?</h2>
       <div class="modal-content-inner">
-        <p>O Método Pomodoro é uma técnica de gerenciamento de tempo desenvolvida por Francesco Cirillo no final dos anos 1980. Ele usa um cronômetro para dividir o trabalho em períodos de foco intenso, separados por pequenos intervalos de descanso. Essa abordagem ajuda a melhorar a produtividade e a concentração, além de reduzir a fadiga mental.</p>
+        <p>O Método Pomodoro é uma técnica de gerenciamento de tempo desenvolvida por Francesco Cirillo no final dos anos 1980. 
+          Ele usa um cronômetro para dividir o trabalho em períodos de foco intenso, separados por pequenos intervalos de descanso. 
+          Essa abordagem ajuda a melhorar a produtividade e a concentração, além de reduzir a fadiga mental.</p>
         <p>Escolha um dos botões abaixo para definir a duração do seu período de foco e intervalo de descanso:</p>
         <ul>
           <li><strong>Opção 1:</strong> 25 minutos de foco, seguidos por 5 minutos de descanso.</li>
@@ -67,7 +71,39 @@
         <button id="modal-close" class="modal-close">Fechar</button>
       </div>
     </div>
+  </div> -->
+
+<button id="open-modal">Abrir</button>
+
+<div id="fade" class="hide"></div>
+
+<div id="modal" class="hide">
+  <div class="modal-header">
+
+    <h2 class="titulo__modal">Bem Vindo ao nosso sistema de Foco</h2>
+    <div class="botao__fechar">
+      <button id="close-modal">x</button>
+    </div>
   </div>
+      
+  <div class="modal-body">
+
+    <p class="texto__modal">
+      O Método Pomodoro é uma técnica de gerenciamento de tempo desenvolvida por Francesco Cirillo no final dos anos 1980. 
+      Ele usa um cronômetro para dividir o trabalho em períodos de foco intenso, separados por pequenos intervalos de descanso. 
+      Essa abordagem ajuda a melhorar a produtividade e a concentração, além de reduzir a fadiga mental.
+    </p>
+    <div class="botoes__modal">
+      <botton>op</botton>
+      <botton>op</botton>
+      <botton>op</botton>
+    </div>
+  </div>
+
+</div>
+
+
+
   
 
   <script src="/script/main.js"></script>
